@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>TopWeather - Agora</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item>
+    <ion-input [(ngModel)]="city" type="text" placeholder="Cidade"></ion-input>
+  </ion-item>
+  <button (click)='loadCidade()' ion-button color="danger">Pesquisar</button>
+  <br>
+  <ion-list>
+    <ion-item *ngFor="let cidade of cidades">
+        <strong>
+          {{cidade.name}}
+        </strong>&emsp;{{cidade.weatherDeion}}
+        <br/>
+          <h1><ion-icon [name]="cidade.weatherIcon"></ion-icon>&emsp;{{cidade .temp | number: '1.0-0'}}ºC</h1>
+        <ion-icon (click)="addCity(cidade.name, cidade.code)" name="add" md="md-add" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

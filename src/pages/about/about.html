@@ -1,0 +1,21 @@
+<ion-header>
+  <meta http-equiv="refresh" content="30">
+  <ion-navbar>
+    <ion-title>
+      Cidades Cadastradas:
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let cidade of cidades">
+        <strong>
+          {{cidade.name}}
+        </strong>&emsp;{{cidade.weatherDeion}}
+        <br/>
+          <h1><ion-icon [name]="cidade.weatherIcon"></ion-icon>&emsp;{{cidade .temp | number: '1.0-0'}}ºC</h1>
+        <ion-icon (click)="removeCity(cidade.name, cidade.code)" name="close" md="md-close" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
